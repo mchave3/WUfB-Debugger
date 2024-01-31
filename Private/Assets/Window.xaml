@@ -1,0 +1,29 @@
+<Window 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="Window"
+    Title="WUfB Debugger"
+    WindowStartupLocation="CenterScreen"
+    Width="1280"
+    Height="720">
+    <Grid>
+        <!-- Grid for Navbar and Main Content -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Navbar -->
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                <Button x:Name="HomeButton" Content="Home" Width="100" Height="30" Margin="5"/>
+                <Button x:Name="SettingsButton" Content="Settings" Width="100" Height="30" Margin="5"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Main Content -->
+        <Grid Grid.Row="1">
+            <Frame x:Name="MainFrame"/>
+        </Grid>
+    </Grid>
+</Window>
