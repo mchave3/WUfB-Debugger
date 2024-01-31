@@ -16,13 +16,11 @@ function Start-Window {
     $window.Icon = New-Object System.Windows.Media.Imaging.BitmapImage (New-Object System.Uri($iconPath.FullName))
 
     # Create variables for each named element
-    $xaml.SelectNodes("//*[@*[contains(translate(name(.),'n','N'),'Name')]]")  | ForEach-Object {
-        # Verify that the element variable doesn't already exist
-        if (Get-Variable -Name $_.Name -ErrorAction SilentlyContinue) {
-            Set-Variable -Name $_.Name -Value $window.FindName($_.Name) -Force | Out-Null
-        }
-        else {
-            New-Variable -Name $_.Name -Value $window.FindName($_.Name) -Force | Out-Null
+    $namedElements = $xaml.SelectNodes("//*[@*[contains(translate(name(.),'n','N'),'Name')]]")
+    foreach ($element in $namedElements) {
+        $elementName = $element.Name
+        if (-not (Get-Variable -Name $elementName -ErrorAction SilentlyContinue)) {
+            New-Variable -Name $elementName -Value $window.FindName($elementName) -Force | Out-Null
         }
     }
 
