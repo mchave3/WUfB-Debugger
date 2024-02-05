@@ -26,7 +26,8 @@
                 Height="200" 
                 Width="200"
                 VerticalAlignment="Center"
-                HorizontalAlignment="Center"/>
+                HorizontalAlignment="Center"
+                NavigationUIVisibility="Hidden"/>
         </Grid>
     </Grid>
 </Window>
